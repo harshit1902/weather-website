@@ -43,7 +43,8 @@ app.get("/about", (req, res) => {
 app.get("/help", (req, res) => {
   res.render("help", {
     title: "Help Page",
-    msg: "Fell free to contact us if you need any help",
+    msg:
+      "Fell free to mail us at dev.harshit19@gmail.com if you need any help.",
     name: "Harshit Goyal",
   });
 });
