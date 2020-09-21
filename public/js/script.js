@@ -1,16 +1,25 @@
 const weatherForm = document.querySelector(".search");
 const input = document.querySelector(".location");
 const error = document.querySelector("#error");
-const success = document.querySelector("#success");
+const humidity = document.querySelector("#humidity");
+const description = document.querySelector("#description");
+const temperature = document.querySelector("#temperature");
+const updatedAt = document.querySelector("#updatedAt");
 
 error.textContent = "";
-success.textContent = "";
+humidity.textContent = "";
+description.textContent = "";
+temperature.textContent = "";
+updatedAt.textContent = "";
 
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const location = input.value;
   error.textContent = "Loading...";
-  success.textContent = "";
+  humidity.textContent = "";
+  description.textContent = "";
+  temperature.textContent = "";
+  updatedAt.textContent = "";
 
   fetch(`/weather?address=${location}`).then((response) => {
     response.json().then((data) => {
@@ -19,7 +28,10 @@ weatherForm.addEventListener("submit", (e) => {
         return;
       }
       error.textContent = data.location;
-      success.textContent = data.forecast;
+      description.textContent = data.description;
+      temperature.textContent = data.temperature;
+      humidity.textContent = data.humidity;
+      updatedAt.textContent = data.updatedAt;
     });
   });
 });

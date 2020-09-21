@@ -15,7 +15,7 @@ const weather = (latitude, longitude, location, callback) => {
       const data = {
         temperature: body.current.temperature + "F",
         description: body.current.weather_descriptions[0],
-        feelsLike: body.current.feelslike + "F",
+        humidity: body.current.humidity,
         updatedAt: body.current.observation_time,
         location: location,
       };
