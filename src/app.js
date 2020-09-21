@@ -2,6 +2,8 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
+
+const port = process.env.PORT || 3000;
 const geocode = require("./utils/geocode");
 const weather = require("./utils/weather");
 
@@ -79,6 +81,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is up and running at http://localhost:3000");
+app.listen(port, () => {
+  console.log(`Server is up at port ${port}`);
 });
